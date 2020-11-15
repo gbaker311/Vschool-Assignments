@@ -1,0 +1,48 @@
+div {
+  height: 100px;
+  /* margin: 0px 0px; */
+  box-sizing: border-box;
+}
+
+.pink {
+  background: #f5c6d6;
+  margin: 5px;
+  width: 600px;
+}
+
+.darkpink {
+  display: inline-block;
+  background: #ee2e84;
+  width: 140px;
+  margin: 5px;
+}
+
+.lightblue {
+  display: inline-block;
+  background: #85cfd8;
+  width: 300px;
+  margin: 5px;
+}
+
+.lightgreen {
+  display: inline-block;
+  background: #8dc63f;
+  width: 74%;
+}
+
+.orange {
+  display: inline-block;
+  width: 24%;
+  background: #e76e34;
+}
+@media only screen and (min-width: 768px) {
+  .pink,
+  .darkpink,
+  .lightblue,
+  .lightgreen,
+  .orange {
+    display: block;
+    width: 100%;
+    background: red;
+  }
+}

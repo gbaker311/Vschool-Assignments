@@ -1,0 +1,115 @@
+
+body {
+    background: grey;
+    
+    
+
+}
+h1 {
+    font-family: fantasy;
+    letter-spacing: 1.5pt;
+    padding-left: 10px;       
+}
+
+.country-flags {
+    
+}
+.grid {
+    display: inline-flex;
+    position: relative;
+    display: inline-block;
+    
+  }
+.flag {
+    width: 250px;
+    height: 150px;
+    overflow: scroll;
+    
+  }
+/*France*/
+
+#france {
+    background-image: linear-gradient(90deg,#0055a4 33%,#fff 33%,#fff 66%,#ef4135 66%);
+    width: 250px;
+    height: 150px;    
+    
+}
+/*germany*/
+
+#germany {
+    background-image: linear-gradient(#000 33%,#d00 33%,#d00 66%,#ffce00 66%);
+    width: 250px;
+    height: 150px;
+    
+}
+/*Madagascar*/
+
+#madagascar {
+    width: 250px;
+    height: 140px;
+    background: linear-gradient(to right, white 30%, transparent 30%), linear-gradient(to bottom, #FC3D32 50%, #007E3A 50%); 
+
+}
+
+/*Switzlerland*/
+.swiss {
+    background: linear-gradient(to bottom, transparent calc(100% / 3), white calc(100% / 3), white calc(100% / 3 * 2), transparent 0), linear-gradient(to right, transparent calc(100% / 3), white calc(100% / 3), white calc(100% / 3 * 2), transparent 0), #FF0000;
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    background-position: 50%; 
+    width: 250px;
+    height: 150px;
+
+}
+    
+/*Sweden*/
+
+.sweden {
+    width: 250px;
+    height: 150px;
+    background: linear-gradient(to right, transparent 30%, #FECC00 30%, #FECC00 45%, transparent 0), linear-gradient(to bottom, transparent 38%, #FECC00 38%, #FECC00 59%, transparent 0), #006AA7;  
+}
+/*Japan*/
+
+  #japan {
+    width: 250px;
+    height: 150px;
+    background: white;
+    
+  }
+  #circle {
+    background: red;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin: 0 auto;
+    margin-top: 25px;
+    float: left;
+    margin-left:75px;
+  }
+
+  #the-gambia {
+     
+    background: linear-gradient(180deg,#ce1126 30%,#0c1c8c 0,#0c1c8c 65%, #fff 0, #fff 70%,#3a7728 0);
+    width: 200px;
+    height: 140px;
+  }
+  .niger {
+  background: radial-gradient(
+      50px at 50% 50%,
+      #e05206 0,
+      #e05206 35%,
+      transparent 0,
+      transparent 100%
+    ),
+    linear-gradient(
+      180deg,
+      #e05206 33.33333%,
+      #fff 33.33333%,
+      #fff 66.66667%,
+      #0db02b 66.66667%
+    );
+    width: 250px;
+    height: 140px;
+}
+      

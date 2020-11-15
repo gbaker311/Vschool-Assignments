@@ -1,0 +1,61 @@
+
+body {
+    
+    margin: auto;
+    margin: 2em;
+    padding-bottom: 1em;
+    background-color: rgba(0, 0, 0, .85);
+    border-radius: 500px;
+    color: white;
+}
+main {
+    margin: 0 auto;
+    width: 750px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+#todoInput {
+    width: 100%;
+    margin: auto;
+    cursor: pointer;
+}
+#todoList {
+    margin: auto;
+    display: block;
+    height: 50px;
+}
+
+
+#button:hover {
+    background-color: rgba(16, 139, 53, 0.5);
+    color: whitesmoke;
+    padding: 10px; 
+    font-weight: bold;
+    transition: .5s;   
+    cursor: pointer;
+      
+}
+
+    
+
+#list {
+    color: azure;
+    padding: 15px;
+    line-height:2rem;
+    background: repeating-linear-gradient(rgb(20, 19, 19), rgb(0, 119, 255), rgb(0, 247, 255))
+    
+    
+}
+li {
+    cursor: pointer;
+}
+.todo-title {
+    border: solid;
+    font-size: 40px;    
+}
+.container {
+    background: repeating-linear-gradient(rgb(20, 19, 19), rgb(0, 119, 255), rgb(0, 247, 255))
+}   

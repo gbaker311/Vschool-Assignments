@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Todo list</title>
+</head>
+
+<body>
+  <section class="container">
+    <div id="headline" class="title-bar">
+      <h1 class="todo-title">Mom's Shopping List</h1>
+    </div>
+    <div class="main">
+      <div class="title-bar">
+        <h3 class="title">Add Item</h3>
+      </div>
+      <form name="mom-list" id="add-todo">
+        <label class="label" for="title">Item name</label>
+        <input class="input" type="text" name="listItem" id="title" placeholder="Enter item here!" autofocus />
+        <button id="button">submit</button>
+      </form>
+      <div class="todos">
+        <div class="title-bar">
+          <h3 class="title">List of items</h3>
+        </div>
+        <hr />
+        <ol id="list">
+          <hr />
+        </ol>
+      </div>
+    </div>
+  </section>
+  <script src="index.js"></script>
+</body>
+
+</html>
