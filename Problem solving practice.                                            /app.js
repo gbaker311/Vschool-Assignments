@@ -13,10 +13,10 @@
 // Write a function that takes an array of words and a character and returns each word that has that character present.
 
 
-const lettersWithStrings = (arr, symbol) =>
-  arr.filter(item => item.includes("!"));
+// const lettersWithStrings = (arr, symbol) =>
+//   arr.filter(item => item.includes("!"));
 
-console.log(lettersWithStrings(["#3", "$$$", "C%4!", "Hey"], "hey!"));
+// console.log(lettersWithStrings(["#3", "$$$", "C%4!", "Hey"], "hey!"));
 
 // console.log(lettersWithStrings(['#3', '$$$', 'C%4!', 'Hey!'], '!')); // => ["C%4!", "Hey!"]
 

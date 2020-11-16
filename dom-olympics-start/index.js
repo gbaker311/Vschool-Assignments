@@ -28,9 +28,13 @@ messages[2].textContent = "OH ABSOLUTELY!";
 messages[3].textContent = "you're great";
 
 let clear = document.getElementById("clear-button");
-clear.onclick = function() {
-  myfunction();
-};
+clear.addEventListener("click", handleClear)
+
+function handleClear() {
+  const messages = document.getElementById("messages");
+  messages.innerHTML = ""
+}
+handleClear();
 function myfunction() {
   const messages = document.getElementsByClassName("message");
   messages[0].textContent = "";
@@ -39,12 +43,32 @@ function myfunction() {
   messages[3].textContent = "";
 }
 const dropDown = document.getElementById("theme-drop-down");
-dropDown.addEventListener("change", function(e) {
-  console.log(e.target.value);
-  if (e.target.value == "theme-one") {
-    
-  }
+dropDown.addEventListener("change", getTheme);
 
-  // if the selected value === theme-one
-  // change the chat bg colors to blue/block
-});
+function getTheme() {
+  let val = dropDown.value;
+  let rightColor = document.querySelectorAll(".right");
+  let leftColor = document.querySelectorAll(".left");
+
+  if (val == "theme-one") {
+    for (let i = 0; i < rightColor.length; i++) {
+      rightColor[i].style.backgroundColor = "brown";
+    }
+    for (let i = 0; i < leftColor.length; i++) {
+      leftColor[i].style.backgroundColor = "blue";
+      leftColor[i].style.color = "black";
+    }
+  }
+  if (val == "theme-two") {
+    for (let i = 0; i < rightColor.length; i++) {
+      rightColor[i].style.backgroundColor = "red";
+      rightColor[i].style.color = "white";
+
+    }
+    for (let i = 0; i < leftColor.length; i++) {
+      leftColor[i].style.backgroundColor = 'black';
+			leftColor[i].style.color = 'white';
+    }
+  }
+}
+
