@@ -10,12 +10,15 @@ body {
 }
 main {
     margin: 0 auto;
-    width: 750px;
+    width: 800px;
+    border: solid 1px black;
+
 }
 
 h1 {
     text-align: center;
     color: white;
+
 }
 #todoInput {
     width: 100%;
@@ -43,7 +46,8 @@ h1 {
 
 #list {
     color: azure;
-    padding: 15px;
+    border: solid 1px black;
+    padding: 25px;
     line-height:2rem;
     background: repeating-linear-gradient(rgb(20, 19, 19), rgb(0, 119, 255), rgb(0, 247, 255))
     

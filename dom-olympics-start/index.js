@@ -18,7 +18,7 @@ document.getElementById("header").appendChild(subTitle);
 // function changeTheme(event) {
 //     let previousValues = selectedOption;
 //     selectedOption = event.target.value;
-//     previousValues = previousValues.split(' ');f
+//     previousValues = previousValues.split(' ')
 // }
 
 const messages = document.getElementsByClassName("message");

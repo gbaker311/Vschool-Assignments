@@ -1,3 +1,4 @@
+
 const colors = ["red", "blue", "green", "purple", "black"];
 
 document.getElementById("add").addEventListener("click", function(e) {
@@ -29,15 +30,15 @@ function createDropDown() {
     // assign the background color of the div to the value selected
     // from the dropdown menu
     console.log(dropDown.parentNode);
-    // e.target.backgroundColor = "blue"
-    // console.log("i changed")
+    e.target.backgroundColor = "blue"
+    console.log("i changed")
   });
   return dropDown;
 }
 
 function createSubItem(itemValue) {
   const subItem = document.createElement("div");
-  // console.log("this is itemValue: ", itemValue)
+  console.log("this is itemValue: ", itemValue)
   subItem.textContent = itemValue;
   const dropDown = createDropDown();
   subItem.appendChild(dropDown);
