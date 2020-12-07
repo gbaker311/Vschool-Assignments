@@ -60,6 +60,7 @@ while (isAlive && !hasWon) {
 
 function throughTree() {
   let random = Math.floor(Math.random() * 4);
+  driver.fuelLevel -= 20;
   if (random === 2) {
     driver.weapons.push("grenade");
     console.log(`you picked up a grenade!`);
@@ -87,7 +88,8 @@ function throughTree() {
 
 function downSteepRoad() {
   let random = Math.floor(Math.random() * 4);
-  driver.fuelLevel -= 25;
+  driver.fuelLevel -= 5;
+  console.log("Your fuel is at " + driver.fuelLevel);
 
   if (random === 0) {
     encounter();
@@ -97,14 +99,29 @@ function downSteepRoad() {
 }
 function cave() {
   let random = Math.floor(Math.random() * 4);
+  console.log("Your fuel is at " + driver.fuelLevel);
+  driver.fuelLevel -= 5;
+
   if (random === 2) {
     driver.weapons.push("AR-15");
     console.log(`you picked up an AR-15!`);
     const action = readlineSync.keyIn(
       "What would you like to do?: [f] Find someone to fight, [p] print inventory, [c] choose another path, or [q] quit.\n",
       { limit: "fcqp" }
-    );
-  }
+    ); 
+    if (action === "f") {
+      encounter();
+    } else if (action === "p") {
+      printInventory();
+    } else if (action === "q") {
+      isAlive = false;
+      console.log(`oh come on ${name}! come back when you grow a pair! `);
+      process.exit();
+      console.clear();
+    }
+  } else if (random === 0) {
+      console.log("brrrr its cold in here!")
+  } 
 }
 function encounter() {
   let random = Math.floor(Math.random() * enemies.length);
@@ -130,9 +147,12 @@ function fight(newEnemy) {
     let action = readlineSync.keyIn("Do you want to fight [f], or run [r]?", {
       limit: "fri"
     });
+
     if (action === "f") {
+      let newEnemy = enemies[Math.floor(Math.random() * enemies.length)];
       attackEnemy(newEnemy);
       enemyAttack(newEnemy);
+      
     } else if (action === "r") {
       run();
     } else if (action === "i") {
@@ -141,6 +161,7 @@ function fight(newEnemy) {
   }
 }
 if (driver.hp > 0) {
+  let newEnemy = enemies[Math.floor(Math.random() * enemies.length)];
   console.log(
     `Well done! ${name}, you destroyed ${newEnemy.name}!, keep it up!`
   );
