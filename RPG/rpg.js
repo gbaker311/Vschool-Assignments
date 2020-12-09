@@ -19,7 +19,7 @@ class Driver {
     this.weapons = [];
   }
 }
-Driver.prototype.honk = function() {
+Driver.prototype.honk = function () {
   console.log("bluurrrrrp");
 };
 
@@ -37,16 +37,18 @@ console.log(
   `Hello there ${name}! You start on top of a very tall and steep mountain, please watch out for enemies on your trip\n`
 );
 
-while (isAlive && !hasWon) {
+while (isAlive && !hasWon && driving) {
   gotAway = false;
   const action = readlineSync.keyIn(
-    "What route would you like to take? Your choices are to [T] through the tall dead pine trees. [C] through the cave. [D] down the steep, windy road. [Q] quit.\n",
-    { limit: "TCDQ" }
+    "What route would you like to take? Your choices are to [T] through the tall dead pine trees. [C] through the cave. [D] down the steep, windy road. [Q] quit.\n", {
+      limit: "TCDQ"
+    }
   );
 
   if (action === "t") {
     throughTree();
-    console.log(`Okay ${name}, get to ready to roll!`);
+    console.log(`Okay ${name}, watch out for fallen trees!`);
+    console.log(`Your fuel in the ${driver.truck} is at ${driver.fuelLevel}`);
   } else if (action === "c") {
     cave();
   } else if (action === "d") {
@@ -65,8 +67,9 @@ function throughTree() {
     driver.weapons.push("grenade");
     console.log(`you picked up a grenade!`);
     const action = readlineSync.keyIn(
-      "What would you like to do?: [f] Find someone to fight, [p] print inventory, [c] choose another path, or [q] quit.\n",
-      { limit: "fcqp" }
+      "What would you like to do?: [f] Find someone to fight, [p] print inventory, [c] choose another path, or [q] quit.\n", {
+        limit: "fcqp"
+      }
     );
     if (action === "f") {
       let newEnemy = enemies[Math.floor(Math.random() * enemies.length)];
@@ -94,9 +97,12 @@ function downSteepRoad() {
   if (random === 0) {
     encounter();
   } else {
-    console.log("what a lovely day for a drive!");
+    console.log(
+      "what a lovely day for a drive! Be on the lookout for bad guys!"
+    );
   }
 }
+
 function cave() {
   let random = Math.floor(Math.random() * 4);
   console.log("Your fuel is at " + driver.fuelLevel);
@@ -105,34 +111,41 @@ function cave() {
   if (random === 2) {
     driver.weapons.push("AR-15");
     console.log(`you picked up an AR-15!`);
-    const action = readlineSync.keyIn(
-      "What would you like to do?: [f] Find someone to fight, [p] print inventory, [c] choose another path, or [q] quit.\n",
-      { limit: "fcqp" }
-    ); 
-    if (action === "f") {
-      encounter();
-    } else if (action === "p") {
-      printInventory();
-    } else if (action === "q") {
-      isAlive = false;
-      console.log(`oh come on ${name}! come back when you grow a pair! `);
-      process.exit();
-      console.clear();
-    }
   } else if (random === 0) {
-      console.log("brrrr its cold in here!")
-  } 
+    console.log("brrrr its cold in here!");
+    encounter();
+  } else if (random === 1) {
+    console.log("This cave is very scary!");
+  }
+  const action = readlineSync.keyIn(
+    "What would you like to do?: [f] Find someone to fight, [p] print inventory, [c] choose another path, or [q] quit.\n", {
+      limit: "fcqp"
+    }
+  );
+
+  if (action === "f") {
+    encounter();
+  } else if (action === "p") {
+    printInventory();
+  } else if (action === "q") {
+    isAlive = false;
+    console.log(`oh come on ${name}! come back when you grow a pair! `);
+    process.exit();
+    console.clear();
+  }
 }
+
 function encounter() {
   let random = Math.floor(Math.random() * enemies.length);
   const newEnemy = enemies[random];
   console.log(`Oh no!!! looks like you have encountered ${newEnemy.name}`);
   const action = readlineSync.keyIn(
-    "Would you you like to fight [f], or haul your ass out of here?[r], quit [q]",
-    { limit: "frq" }
+    "Would you you like to fight [f], or haul your ass out of here? [r], quit [q]\n", {
+      limit: "frq"
+    }
   );
   if (action === "f") {
-    let newEnemy = enemies[Math.floor(Math.random() * enemies.length)];
+    // let newEnemy = enemies[Math.floor(Math.random() * enemies.length)];
     attackEnemy(newEnemy);
     fight(newEnemy);
   } else if (action === "r") {
@@ -152,7 +165,6 @@ function fight(newEnemy) {
       let newEnemy = enemies[Math.floor(Math.random() * enemies.length)];
       attackEnemy(newEnemy);
       enemyAttack(newEnemy);
-      
     } else if (action === "r") {
       run();
     } else if (action === "i") {
@@ -165,12 +177,12 @@ if (driver.hp > 0) {
   console.log(
     `Well done! ${name}, you destroyed ${newEnemy.name}!, keep it up!`
   );
-  enemies.splice(enemies.indexOf(enemy), 1);
+  enemies.splice(enemies.indexOf(newEnemy), 1);
   if (enemies.length === 0) {
     console.log(`Well done ${driver.name}!`);
     hasWon = true;
   } else {
-    console.log(`${enemy.name} kicked your ass!!`);
+    console.log(`${newEnemy.name} kicked your ass!!`);
     isAlive = false;
   }
 }
@@ -194,7 +206,7 @@ function enemyAttack(enemy) {
 function run(enemy) {
   let random = Math.random(Math.random() * 4);
   let newEnemy = enemies[Math.floor(Math.random() * enemies.length)];
-  if (random === 0) {
+  if (random === 2) {
     console.log("You got away!");
     gotAway = true;
   } else {
