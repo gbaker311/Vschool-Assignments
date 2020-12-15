@@ -19,11 +19,11 @@ class Driver {
     this.weapons = [];
   }
 }
-Driver.prototype.honk = function () {
+Driver.prototype.honk = function() {
   console.log("bluurrrrrp");
 };
 
-const truckerBob = new Driver("trucker Bob", "F-150", 80, 100, 100);
+const truckerBob = new Driver("trucker Bob", "F-150", 80, 100, 200);
 const crazyTrucker = new Driver("crazy trucker", "Tacoma", 75, 80, 50);
 const darthMaul = new Driver("Darth Maul", "Flying Semi-truck", 100, 50, 25);
 
@@ -40,7 +40,8 @@ console.log(
 while (isAlive && !hasWon && driving) {
   gotAway = false;
   const action = readlineSync.keyIn(
-    "What route would you like to take? Your choices are to [T] through the tall dead pine trees. [C] through the cave. [D] down the steep, windy road. [Q] quit.\n", {
+    "What route would you like to take? Your choices are to [T] through the tall dead pine trees. [C] through the cave. [D] down the steep, windy road. [Q] quit\n",
+    {
       limit: "TCDQ"
     }
   );
@@ -62,12 +63,13 @@ while (isAlive && !hasWon && driving) {
 
 function throughTree() {
   let random = Math.floor(Math.random() * 4);
-  driver.fuelLevel -= 20;
+  driver.fuelLevel -= 5;
   if (random === 2) {
     driver.weapons.push("grenade");
     console.log(`you picked up a grenade!`);
     const action = readlineSync.keyIn(
-      "What would you like to do?: [f] Find someone to fight, [p] print inventory, [c] choose another path, or [q] quit.\n", {
+      "What would you like to do?: [f] Find someone to fight, [p] print inventory, [c] choose another path, or [q] quit.\n",
+      {
         limit: "fcqp"
       }
     );
@@ -86,6 +88,9 @@ function throughTree() {
 
     // let fuelLevel = 50;
     //console.log(random);
+  } else if (random === 1) {
+    driver.weapons.push("Rocket Launcher");
+    console.log(`Oh damn son! You just found a Rocket Launcher!`);
   }
 }
 
@@ -118,7 +123,8 @@ function cave() {
     console.log("This cave is very scary!");
   }
   const action = readlineSync.keyIn(
-    "What would you like to do?: [f] Find someone to fight, [p] print inventory, [c] choose another path, or [q] quit.\n", {
+    "What would you like to do?: [f] Find someone to fight, [p] print inventory, [c] choose another path, or [q] quit.\n",
+    {
       limit: "fcqp"
     }
   );
@@ -140,7 +146,8 @@ function encounter() {
   const newEnemy = enemies[random];
   console.log(`Oh no!!! looks like you have encountered ${newEnemy.name}`);
   const action = readlineSync.keyIn(
-    "Would you you like to fight [f], or haul your ass out of here? [r], quit [q]\n", {
+    "Would you you like to fight [f], or haul your ass out of here? [r], quit [q]\n",
+    {
       limit: "frq"
     }
   );
@@ -152,6 +159,9 @@ function encounter() {
     run();
   } else if (action === "q") {
     isAlive = false;
+    driving = false;
+    process.exit();
+    console.clear();
   }
 }
 
@@ -178,6 +188,8 @@ if (driver.hp > 0) {
     `Well done! ${name}, you destroyed ${newEnemy.name}!, keep it up!`
   );
   enemies.splice(enemies.indexOf(newEnemy), 1);
+  console.log(enemies);
+
   if (enemies.length === 0) {
     console.log(`Well done ${driver.name}!`);
     hasWon = true;
@@ -204,11 +216,13 @@ function enemyAttack(enemy) {
 }
 
 function run(enemy) {
-  let random = Math.random(Math.random() * 4);
+  let random = Math.floor(Math.random() * 3);
   let newEnemy = enemies[Math.floor(Math.random() * enemies.length)];
   if (random === 2) {
     console.log("You got away!");
     gotAway = true;
+  } else if (random === 1) {
+    console.log("Get out of here while you can!");
   } else {
     encounter(newEnemy);
   }

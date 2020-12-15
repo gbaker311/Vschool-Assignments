@@ -1,0 +1,16 @@
+html, body {
+    background-color: #5866e6;
+    color: #918686;
+    width: 100%;
+    border: 1px solid black;
+}
+h1 {
+    text-align: center;
+}
+main {
+    margin-left: 20%;
+    background-color: blue;
+}
+form > label {
+    display: block;
+}

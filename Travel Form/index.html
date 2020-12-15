@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Travel form</title>
+</head>
+
+<body>
+    <h1>Travel Form</h1>
+
+    <form id="travelForm">
+        <b>
+            <input type="text" name="firstName" placeholder="First Name" id="firstName" />
+            <label for="">First Name</label>
+            <br>
+            <input type="text " name="lastName" placeholder="Last Name" id="lastName" />
+            <label for="">Last Name</label>
+            <br />
+            <br>
+            <b>
+                <input type="number" name="age" id="age" />
+                <label for="">age</label>
+            </b>
+            <br>
+            <b>
+                <input type="radio" name="gender" value="female" id="female"/>
+                <label for="female">Female</label>
+                <br>
+                <input type="radio" name="gender" value="male" id="male" />
+                <label for="male">Male</label>
+            </b>
+            <br>
+            <select name="destination" id="destination">
+                <option value="Mexico">Mexico</option>
+                <option value="france">france</option>
+                <option value="germany">germany</option>
+            </select>
+            <b>
+                <label for="">Destination</label>
+            </b>
+            <br>
+            <b>
+                <input type="checkbox" name="diet" value="dairy" id="diet"/>
+                <label for="">dairy</label>
+            <br>
+                <input type="checkbox" name="diet" value="protien" id="diet"/>
+                <label for="">protien</label>
+                <br>
+                <input type="checkbox" name="diet" value="carbs" id="diet"/>
+                <label for="">carbs</label>
+            </b>
+            <br>
+            <button type="button" id="submit">Submit</button>   
+
+
+    </form>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
