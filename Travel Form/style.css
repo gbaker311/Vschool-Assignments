@@ -1,16 +1,33 @@
-html, body {
-    background-color: #5866e6;
-    color: #918686;
-    width: 100%;
-    border: 1px solid black;
+* {
+    box-sizing: border-box;
+    
+}
+body {
+    font-family: "Quicksand", sans-serif;
+
+
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: rgb(22, 111, 224, 0.9);
+
+}   
+form {
+    display: inline-block;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 16px;
 }
 h1 {
-    text-align: center;
-}
-main {
-    margin-left: 20%;
-    background-color: blue;
-}
-form > label {
-    display: block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: white;
+    font-weight: 300;
+    letter-spacing: align;
+    
 }
